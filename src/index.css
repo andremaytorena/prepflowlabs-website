@@ -1,0 +1,25 @@
+
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@import "@fontsource/inter";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: rgba(231 235 239, 0.6);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+@theme {
+  --font-sans: "InterVariable", "Inter", system-ui, sans-serif;
+  --color-accent-pink: #C33764;
+  --color-accent-blue: #302b63;
+  --color-accent-darkblue: #1D2671;
+}
