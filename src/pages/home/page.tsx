@@ -1,37 +1,21 @@
 /** @format */
 
-// /** @format */
-
-// import Header from "../../components/header2";
-// import { FaChevronRight } from "react-icons/fa";
-// import Hero from "../../components/hero";
-
-// function HomePage() {
-//     return (
-//         <div className="">
-//             <Header />
-//             <div className="mt-36">
-//                 <Hero />
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default HomePage;
-
-/** @format */
-
-import Header from "../../components/header2";
-import { FaChevronRight } from "react-icons/fa";
-import Hero from "../../components/hero";
+import Features from "./sections/features";
+import Header from "../../components/header";
+import Hero from "./sections/hero";
+import PricingHero from "./sections/pricing";
 
 function HomePage() {
     return (
-        <div className="relative min-h-screen overflow-hidden">
+        <div className="relative min-h-screen overflow-hidden pb-96">
             {/* Content */}
             <Header />
-            <div className="mt-36 relative z-10">
+            <div className="sm:mt-36 mt-32 relative z-10 space-y-32">
                 <Hero />
+
+                <Features />
+
+                <PricingHero />
             </div>
         </div>
     );
