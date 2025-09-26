@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion, type Transition } from "framer-motion";
 import { FaChevronRight } from "react-icons/fa";
 import { IoMdArrowRoundForward } from "react-icons/io";
-import { RxHamburgerMenu } from "react-icons/rx";
 import clsx from "clsx";
 import {
     Popover,
@@ -176,7 +175,7 @@ export default function Header() {
                         >
                             <img
                                 src="/logo.png"
-                                alt="Logo"
+                                alt="Prepflowlabs"
                                 className="h-6 w-auto md:h-7"
                             />
                         </motion.a>

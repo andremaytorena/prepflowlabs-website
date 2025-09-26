@@ -8,7 +8,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { HiOutlineTruck } from "react-icons/hi";
 
 const sections = [
-    { label: "Generate plans", image: "/dash.png", icon: RiAiGenerate },
+    { label: "Generate plans", image: "/optimize1.png", icon: RiAiGenerate },
     { label: "Confirm plan", image: "/dash.png", icon: FaRegCheckCircle },
     { label: "Create shipment", image: "/dash.png", icon: HiOutlineTruck },
 ];
@@ -75,7 +75,7 @@ export function SectionPicker({
         >
             {/* highlight background */}
             <div
-                className="absolute bg-slate-100 rounded-lg transition-all duration-300 ease-in-out pointer-events-none"
+                className="absolute bg-white rounded-lg transition-all duration-300 ease-in-out pointer-events-none"
                 style={{
                     transform: `translate3d(${rect.left}px, ${rect.top}px, 0)`,
                     width: rect.width,
@@ -158,8 +158,12 @@ function Hero() {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                         <img
-                            alt="App screenshot"
-                            src="https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
+                            alt="Prepflowlabs auto optimizer"
+                            src={
+                                sections.find(
+                                    (s) => s.label === selectedSection
+                                )?.image
+                            }
                             width={2432}
                             height={1442}
                             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"

@@ -50,7 +50,7 @@ export default function PricingHero() {
                 pricing or add-ons.
             </p>
 
-            <div className="grid grid-cols-2 gap-x-10 max-w-4xl mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 max-w-4xl mt-8 px-4 sm:gap-y-0 gap-y-4">
                 {tiers.map((tier) => (
                     <PricingCard tier={tier} />
                 ))}
