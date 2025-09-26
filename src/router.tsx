@@ -1,7 +1,6 @@
 /** @format */
 
 import { createBrowserRouter, redirect } from "react-router-dom";
-import { lazy } from "react";
 import HomePage from "./pages/home/page";
 
 // const Home = lazy(() => import("./pages/home/page"));
