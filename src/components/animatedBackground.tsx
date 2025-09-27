@@ -246,7 +246,7 @@ const AnimatedBackground: React.FC = () => {
                         backgroundPosition: "center",
                         top: "5%",
                         left: "-20%",
-                        // animation: "cloudFloat1 90s linear infinite",
+                        animation: "cloudFloat1 90s linear infinite",
                     }}
                 />
 

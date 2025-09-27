@@ -11,6 +11,91 @@ import {
     PopoverBackdrop,
     PopoverPanel,
 } from "@headlessui/react";
+import { FaBoxesStacked } from "react-icons/fa6";
+import { BsPeopleFill } from "react-icons/bs";
+import { TbBus } from "react-icons/tb";
+import { FaChartArea } from "react-icons/fa";
+import { FaFileInvoiceDollar } from "react-icons/fa6";
+import { FaEnvelopeOpenText } from "react-icons/fa";
+import { FaCodePullRequest } from "react-icons/fa6";
+import { FaWarehouse } from "react-icons/fa";
+import HoverFlyoutMenu from "./headerDropdownButton";
+
+const features = [
+    {
+        title: "Prepcenters",
+        items: [
+            {
+                name: "Warehouse Management Software",
+                description: "",
+                href: "/prepcenter",
+                icon: FaWarehouse,
+            },
+        ],
+    },
+    {
+        title: "",
+        items: [],
+    },
+    {
+        title: "Features",
+        items: [
+            {
+                name: "Client management",
+                description: "",
+                href: "/features/client-management",
+                icon: BsPeopleFill,
+            },
+            {
+                name: "Inventory management",
+                description: "",
+                href: "/features/inventory-management",
+                icon: FaBoxesStacked,
+            },
+            {
+                name: "Shipments",
+                description: "",
+                href: "/features/shipments",
+                icon: TbBus,
+            },
+            {
+                name: "Key Performance Indicators",
+                description: "",
+                href: "/features/kpis",
+                icon: FaChartArea,
+            },
+        ],
+    },
+    {
+        title: "More",
+        items: [
+            {
+                name: "Automated billing",
+                description: "",
+                href: "/features/billing",
+                icon: FaFileInvoiceDollar,
+            },
+            {
+                name: "Affiliate program",
+                description: "",
+                href: "/features/affiliates",
+                icon: FaEnvelopeOpenText,
+            },
+            {
+                name: "Employee management",
+                description: "",
+                href: "/features/employees",
+                icon: FaCodePullRequest,
+            },
+            // {
+            //   name: 'Notifications',
+            //   description: '',
+            //   href: '/features/notifications',
+            //   icon: FaBell,
+            // },
+        ],
+    },
+];
 
 const items = [
     { label: "Features", href: "#features" },
@@ -170,7 +255,7 @@ export default function Header() {
                         <motion.a
                             layout
                             transition={spring}
-                            href="#"
+                            href="/"
                             className="flex items-center gap-3 sm:w-64"
                         >
                             <img
@@ -193,6 +278,12 @@ export default function Header() {
                                         </a>
                                     </li>
                                 ))}
+                                <HoverFlyoutMenu
+                                    label="Prep Centers"
+                                    sections={features}
+                                    gridCols={2}
+                                    isScrolled={isScrolled}
+                                />
                             </ul>
                         </div>
 
