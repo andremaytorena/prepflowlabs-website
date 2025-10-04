@@ -7,7 +7,7 @@ const navigation = {
         { name: "Pricing", href: "/pricing" },
         { name: "Prepcenters", href: "/prepcenter" },
     ],
-    support: [{ name: "Contact", href: "#" }],
+    support: [{ name: "Contact", href: "/contact" }],
     // company: [
     //     { name: "About", href: "#" },
     //     { name: "Blog", href: "#" },
