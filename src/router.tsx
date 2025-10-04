@@ -14,6 +14,7 @@ import PricingPage from "./pages/pricing/page";
 import PrepcenterRegister from "./pages/prepcenter/register/page";
 import PrepcenterContact from "./pages/prepcenter/contact/page";
 import NotFound from "./pages/notfound/page";
+import PrivacyPolicy from "./pages/privacy-policy/page";
 
 // const Home = lazy(() => import("./pages/home/page"));
 // const NotFound = lazy(() => import("./pages/not-found/page"));
@@ -35,6 +36,8 @@ const routes = createBrowserRouter([
     { path: "/prepcenter/affiliates", element: <PrepcenterReferrals /> },
     { path: "/prepcenter/employees", element: <PrepcenterEmployees /> },
     { path: "/prepcenter/register", element: <PrepcenterRegister /> },
+
+    { path: "/privacy-policy", element: <PrivacyPolicy /> },
 
     { path: "/logout", loader: async () => redirect("/") },
     { path: "*", element: <NotFound /> },

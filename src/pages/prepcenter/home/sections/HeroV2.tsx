@@ -31,7 +31,7 @@ export function HeroV2() {
             </svg>
             <div className="mx-auto max-w-7xl px-6 pt-10 lg:flex lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
-                    <h1 className="font-bold text-3xl sm:text-5xl/tight max-w-xl text-left sm:mx-0 mx-4">
+                    <h1 className="font-bold text-4xl sm:text-5xl/tight max-w-xl text-left">
                         Optimize your prep center workflow.
                     </h1>
                     <p className="mx-auto mt-6 text-slate-700 font-medium max-w-2xl text-lg tracking-tight ">

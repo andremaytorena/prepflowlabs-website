@@ -11,6 +11,7 @@ import {
     PopoverBackdrop,
     PopoverPanel,
 } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { FaBoxesStacked } from "react-icons/fa6";
 import { BsPeopleFill } from "react-icons/bs";
 import { TbBus } from "react-icons/tb";
@@ -20,6 +21,7 @@ import { FaEnvelopeOpenText } from "react-icons/fa";
 import { FaCodePullRequest } from "react-icons/fa6";
 import { FaWarehouse } from "react-icons/fa";
 import HoverFlyoutMenu from "./headerDropdownButton";
+import type { IconType } from "react-icons/lib";
 
 const features = [
     {
@@ -124,6 +126,87 @@ function MobileNavIcon({ open }: { open: boolean }) {
     );
 }
 
+function MobileNavLink({
+    href,
+    children,
+}: {
+    href: string;
+    children: React.ReactNode;
+}) {
+    return (
+        <PopoverButton as="a" href={href} className="block w-full p-2">
+            {children}
+        </PopoverButton>
+    );
+}
+
+function MobileDropdown({
+    label,
+    sections,
+}: {
+    label: string;
+    sections: {
+        title: string;
+        items: {
+            name: string;
+            description: string;
+            href: string;
+            icon: IconType;
+        }[];
+    }[];
+}) {
+    return (
+        <Disclosure>
+            {({ open }) => (
+                <>
+                    <Disclosure.Button className="flex w-full items-center justify-between py-2 pl-2 text-left">
+                        <span>{label}</span>
+                        <svg
+                            className={clsx(
+                                "h-5 w-5 transform transition-transform",
+                                open && "rotate-180"
+                            )}
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                            />
+                        </svg>
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="pl-4">
+                        {sections.map((section) => (
+                            <div key={section.title} className="mb-4">
+                                <h4 className="mt-2 mb-1 font-semibold text-slate-700">
+                                    {section.title}
+                                </h4>
+                                <ul className="space-y-1">
+                                    {section.items.map((item) => (
+                                        <li key={item.name}>
+                                            <a
+                                                href={item.href}
+                                                className="flex items-center rounded p-2 hover:bg-slate-100"
+                                            >
+                                                <item.icon className="mr-3 h-5 w-5 text-slate-500" />
+                                                <span>{item.name}</span>
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </Disclosure.Panel>
+                </>
+            )}
+        </Disclosure>
+    );
+}
+
 function MobileNavigation() {
     return (
         <Popover>
@@ -142,9 +225,10 @@ function MobileNavigation() {
                 className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 data-closed:scale-95 data-closed:opacity-0 data-enter:duration-150 data-enter:ease-out data-leave:duration-100 data-leave:ease-in"
             >
                 {/* <MobileDropdown label="Features" sections={features} />
-                <MobileDropdown label="Integrations" sections={integrations} />
+                <MobileDropdown label="Integrations" sections={integrations} /> */}
+                <MobileNavLink href="/">Features</MobileNavLink>
                 <MobileNavLink href="/pricing">Pricing</MobileNavLink>
-                <MobileNavLink href="/contact">Contact</MobileNavLink> */}
+                <MobileDropdown label="Prepcenters" sections={features} />
             </PopoverPanel>
         </Popover>
     );

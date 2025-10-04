@@ -63,7 +63,7 @@ export function PrimaryFeatures() {
         <section
             id="features"
             aria-label="Features for running your books"
-            className="relative overflow-hidden bg-[#DDE1E5] pb-28 sm:py-32"
+            className="relative overflow-hidden bg-[#DDE1E5] pb-28 sm:py-32 py-16"
         >
             {/* <Image
         className="absolute top-1/2 left-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
@@ -89,7 +89,7 @@ export function PrimaryFeatures() {
                 >
                     {({ selectedIndex }) => (
                         <>
-                            <div className="-mx-4 flex overflow-x-auto pb-4 sm:mx-0 sm:overflow-visible sm:pb-0 lg:col-span-5">
+                            <div className="-mx-4 flex overflow-x-auto pb-4 sm:mx-0 sm:overflow-visible sm:pb-0 lg:col-span-5 no-scroll">
                                 <TabList className="relative z-10 flex gap-x-4 px-4 whitespace-nowrap sm:mx-auto sm:px-0 lg:mx-0 lg:block lg:gap-x-0 lg:gap-y-1 lg:whitespace-normal">
                                     {features.map((feature, featureIndex) => (
                                         <div
@@ -138,7 +138,7 @@ export function PrimaryFeatures() {
                                     >
                                         <div className="relative sm:px-6 lg:hidden">
                                             <div className="absolute -inset-x-4 top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-white/10 ring-inset sm:inset-x-0 sm:rounded-t-xl" />
-                                            <p className="relative mx-auto max-w-2xl text-base text-white sm:text-center">
+                                            <p className="relative mx-auto max-w-2xl text-base text-slate-800 sm:text-center">
                                                 {feature.description}
                                             </p>
                                         </div>
