@@ -50,7 +50,7 @@ export default function ShipmentsFlow() {
                 no guesswork.
             </p>
 
-            <div className="flex flex-row px-4 no-scrollbar items-center overflow-x-scroll  w-full sm:max-w-6xl gap-x-6 pt-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-row px-4 no-scrollbar items-center overflow-x-scroll w-full sm:max-w-6xl gap-x-6 pt-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {sections.map((section) => (
                     <div
                         onClick={() => setSelectedSection(section.label)}
@@ -58,7 +58,7 @@ export default function ShipmentsFlow() {
                             section.label === selectedSection
                                 ? "border-accent bg-white"
                                 : "border-slate-300 hover:border-slate-400 bg-[#DDE1E5]"
-                        } cursor-pointer border basis-72 min-w-72 rounded-lg shadow-sm transition-all px-4 py-4 h-36 flex flex-col space-y-0.5`}
+                        } cursor-pointer border sm:w-full sm:min-w-min min-w-72 rounded-lg shadow-sm transition-all px-4 py-4 h-36 flex flex-col space-y-0.5`}
                     >
                         <p className="font-semibold text-base">
                             {section.label}
