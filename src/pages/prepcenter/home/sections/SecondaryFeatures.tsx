@@ -145,7 +145,7 @@ function Feature({
             >
                 {feature.name}
             </h3>
-            <p className="mt-2 font-display text-xl text-slate-900">
+            <p className="mt-2 font-display text-xl text-slate-900 font-medium">
                 {feature.summary}
             </p>
             <p className="mt-4 text-sm text-slate-600">{feature.description}</p>
@@ -249,10 +249,10 @@ export function SecondaryFeatures() {
         >
             <Container>
                 <div className="mx-auto max-w-2xl md:text-center">
-                    <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+                    <h2 className="font-semibold text-3xl tracking-tight text-slate-900 sm:text-4xl">
                         Simplify your operations.
                     </h2>
-                    <p className="mt-4 text-lg tracking-tight text-slate-700">
+                    <p className="mt-4 text-lg tracking-tight font-medium text-slate-700">
                         Make your workflow more effiecient by automating your
                         tasks.
                     </p>

@@ -14,6 +14,3 @@ export default function AnalyticsCard({
         </div>
     );
 }
-
-// Usage example:
-// <AnalyticsCard className="max-w-3xl" />

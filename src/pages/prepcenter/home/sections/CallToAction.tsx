@@ -18,7 +18,8 @@ export function CallToAction() {
                         Start improving your prep center's efficiency to
                         maximize your profit.
                     </p>
-                    <button
+                    <a
+                        href="/prepcenter/register"
                         className="group mt-10 text-sm relative inline-flex items-center justify-center gap-x-2 px-6 py-2 font-medium text-white rounded-xl
                                                               bg-[linear-gradient(60deg,#C33764,#302B63)]
                                                               cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden"
@@ -36,7 +37,7 @@ export function CallToAction() {
                             size={20}
                             className="absolute right-6 transition-all duration-300 opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1"
                         />
-                    </button>
+                    </a>
                 </div>
             </Container>
         </section>

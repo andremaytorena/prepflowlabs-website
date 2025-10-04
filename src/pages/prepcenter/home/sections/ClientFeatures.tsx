@@ -13,7 +13,7 @@ export default function ClientFeatures() {
                 <h2 className="bg-gradient-to-r from-[#C33764] via-[#302b63] to-[#1D2671] bg-clip-text text-base/7 font-semibold text-transparent">
                     Deploy faster
                 </h2>
-                <p className="text- mt-2 max-w-lg font-display text-3xl tracking-tight sm:text-4xl md:text-5xl">
+                <p className="text- mt-2 max-w-lg font-semibold text-3xl tracking-normal sm:text-4xl md:text-5xl">
                     Everything your clients need too.
                 </p>
                 <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">

@@ -75,10 +75,10 @@ export function PrimaryFeatures() {
       /> */}
             <Container className="relative">
                 <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
-                    <h2 className="font-display text-3xl tracking-tight text-black sm:text-4xl md:text-5xl">
+                    <h2 className="font-semibold text-3xl tracking-tight text-black sm:text-4xl md:text-5xl">
                         Everything you need to manage your prep center.
                     </h2>
-                    <p className="mt-6 text-lg tracking-tight text-slate-700">
+                    <p className="mt-6 text-lg tracking-tight text-slate-700 font-medium">
                         We offer custom features for specific usecases. Add your
                         own logo and colors to the software.
                     </p>
@@ -104,7 +104,7 @@ export function PrimaryFeatures() {
                                             <h3>
                                                 <Tab
                                                     className={clsx(
-                                                        "font-display text-lg data-selected:not-data-focus:outline-hidden",
+                                                        "font-medium text-lg data-selected:not-data-focus:outline-hidden",
                                                         selectedIndex ===
                                                             featureIndex
                                                             ? "bg-gradient-to-r from-[#C33764] via-[#302b63] to-[#1D2671] bg-clip-text lg:text-black"

@@ -31,16 +31,17 @@ export function HeroV2() {
             </svg>
             <div className="mx-auto max-w-7xl px-6 pt-10 lg:flex lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
-                    <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+                    <h1 className="font-bold text-3xl sm:text-5xl/tight max-w-xl text-left sm:mx-0 mx-4">
                         Optimize your prep center workflow.
                     </h1>
-                    <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
+                    <p className="mx-auto mt-6 text-slate-700 font-medium max-w-2xl text-lg tracking-tight ">
                         Most prep center management systems are slow and
                         inefficient. We make sure to provide smooth and custom
                         solution for your specific needs and branding.
                     </p>
                     <div className="mt-10 flex justify-start gap-x-6">
-                        <button
+                        <a
+                            href="/prepcenter/register"
                             className="group text-sm relative inline-flex items-center justify-center gap-x-2 px-6 py-2 font-medium text-white rounded-xl
                                           bg-[linear-gradient(60deg,#C33764,#302B63)]
                                           cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden"
@@ -58,7 +59,7 @@ export function HeroV2() {
                                 size={20}
                                 className="absolute right-6 transition-all duration-300 opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1"
                             />
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none xl:ml-32">

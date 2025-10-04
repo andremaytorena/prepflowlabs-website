@@ -6,6 +6,8 @@ import Hero from "./sections/hero";
 import PricingHero from "./sections/pricing";
 import AnimatedBackground from "../../components/animatedBackground";
 import Footer from "../../components/footer";
+import ShipmentsFlow from "./sections/shipmentsFlow";
+import CTA from "./sections/cta";
 
 function HomePage() {
     return (
@@ -18,9 +20,13 @@ function HomePage() {
             <div className="sm:mt-36 mt-32 relative z-10 space-y-32">
                 <Hero />
 
+                <ShipmentsFlow />
+
                 <Features />
 
                 <PricingHero />
+
+                <CTA />
 
                 <Footer />
             </div>

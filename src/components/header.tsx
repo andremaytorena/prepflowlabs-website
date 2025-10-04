@@ -43,25 +43,25 @@ const features = [
             {
                 name: "Client management",
                 description: "",
-                href: "/features/client-management",
+                href: "/prepcenter/client-management",
                 icon: BsPeopleFill,
             },
             {
                 name: "Inventory management",
                 description: "",
-                href: "/features/inventory-management",
+                href: "/prepcenter/inventory-management",
                 icon: FaBoxesStacked,
             },
             {
                 name: "Shipments",
                 description: "",
-                href: "/features/shipments",
+                href: "/prepcenter/shipments",
                 icon: TbBus,
             },
             {
                 name: "Key Performance Indicators",
                 description: "",
-                href: "/features/kpis",
+                href: "/prepcenter/kpis",
                 icon: FaChartArea,
             },
         ],
@@ -72,35 +72,29 @@ const features = [
             {
                 name: "Automated billing",
                 description: "",
-                href: "/features/billing",
+                href: "/prepcenter/billing",
                 icon: FaFileInvoiceDollar,
             },
             {
                 name: "Affiliate program",
                 description: "",
-                href: "/features/affiliates",
+                href: "/prepcenter/affiliates",
                 icon: FaEnvelopeOpenText,
             },
             {
                 name: "Employee management",
                 description: "",
-                href: "/features/employees",
+                href: "/prepcenter/employees",
                 icon: FaCodePullRequest,
             },
-            // {
-            //   name: 'Notifications',
-            //   description: '',
-            //   href: '/features/notifications',
-            //   icon: FaBell,
-            // },
         ],
     },
 ];
 
 const items = [
-    { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Resources", href: "#resources" },
+    { label: "Features", href: "/" },
+    { label: "Pricing", href: "/pricing" },
+    // { label: "Resources", href: "#resources" },
 ];
 
 function MobileNavIcon({ open }: { open: boolean }) {
@@ -295,10 +289,14 @@ export default function Header() {
                         >
                             {/* desktop buttons */}
                             <div className="hidden md:flex space-x-2">
-                                <button className="text-sm border border-slate-400 px-3 rounded-xl font-medium py-2 hover:opacity-80 cursor-pointer">
+                                <a
+                                    href="https://app.prepflowlabs.com/login"
+                                    className="text-sm border border-slate-400 px-3 rounded-xl font-medium py-2 hover:opacity-80 cursor-pointer"
+                                >
                                     Sign In
-                                </button>
-                                <button
+                                </a>
+                                <a
+                                    href="https://app.prepflowlabs.com/sign-up"
                                     className="group text-sm relative inline-flex items-center justify-center gap-x-2 px-6 py-2 font-medium text-white rounded-xl
                   bg-[linear-gradient(60deg,#C33764,#302B63)]
                   cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden"
@@ -316,7 +314,7 @@ export default function Header() {
                                         size={20}
                                         className="absolute right-6 transition-all duration-300 opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1"
                                     />
-                                </button>
+                                </a>
                             </div>
 
                             <div className="-mr-1 md:hidden">

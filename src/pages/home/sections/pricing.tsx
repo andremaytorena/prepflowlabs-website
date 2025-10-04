@@ -2,12 +2,12 @@
 
 import PricingCard from "../../../components/pricingCard";
 
-const tiers = [
+export const pricingTiers = [
     {
         name: "Standard",
         id: "tier-hobby",
         href: "#",
-        priceMonthly: "$29",
+        priceMonthly: "$35",
         description:
             "Designed for any seller looking to scale their FBA business without limits.",
         features: [
@@ -22,7 +22,7 @@ const tiers = [
         name: "Standard + WFS",
         id: "tier-team",
         href: "#",
-        priceMonthly: "$99",
+        priceMonthly: "$50",
         description:
             "Designed for any seller looking to scale their FBA & WFS business without limits.",
         features: [
@@ -51,7 +51,7 @@ export default function PricingHero() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 max-w-4xl mt-8 px-4 sm:gap-y-0 gap-y-4">
-                {tiers.map((tier) => (
+                {pricingTiers.map((tier) => (
                     <PricingCard tier={tier} />
                 ))}
             </div>

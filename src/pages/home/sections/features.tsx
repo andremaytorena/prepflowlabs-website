@@ -19,9 +19,15 @@ function Features() {
                 switching tools
             </p>
 
-            <div className="grid grid-cols-1 px-4 sm:gap-y-0 gap-y-4 sm:grid-cols-2 max-w-6xl mt-8 gap-x-10">
-                <AnalyticsCard />
-                <AnalyticsCard />
+            <div className="grid grid-cols-1 px-4 sm:gap-y-0 gap-y-4 sm:grid-cols-1 max-w-6xl mt-8 gap-x-10">
+                <AnalyticsCard
+                    title="Track spenditure & profit"
+                    description="Monitor your profit and losses for both FBA and WFS to ensure maximum profit gains."
+                />
+                {/* <AnalyticsCard
+                    title="Unified Workflow"
+                    description="Save time by managing both Amazon and Walmart shipments with one streamlined process."
+                /> */}
             </div>
         </div>
     );

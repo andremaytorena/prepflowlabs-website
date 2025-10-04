@@ -40,7 +40,8 @@ export default function PricingCard({
                     {tier.description}
                 </p>
 
-                <button
+                <a
+                    href="https://app.prepflowlabs.com/sign-up"
                     className="group text-sm relative inline-flex items-center justify-center gap-x-2 px-6 py-3 font-medium text-white rounded-xl
                              bg-[linear-gradient(60deg,#C33764,#302B63)]
                              cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden w-full mt-4"
@@ -58,7 +59,7 @@ export default function PricingCard({
                         size={20}
                         className="absolute right-6 transition-all duration-300 opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1"
                     />
-                </button>
+                </a>
                 <ul
                     role="list"
                     className="mt-10 space-y-4 text-sm/6 text-gray-600"

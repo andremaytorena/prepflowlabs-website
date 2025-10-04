@@ -2,28 +2,18 @@
 
 const navigation = {
     solutions: [
-        { name: "Marketing", href: "#" },
-        { name: "Analytics", href: "#" },
-        { name: "Automation", href: "#" },
-        { name: "Commerce", href: "#" },
-        { name: "Insights", href: "#" },
+        { name: "Features", href: "/" },
+        { name: "Pricing", href: "/pricing" },
+        { name: "Prepcenters", href: "/prepcenter" },
     ],
-    support: [
-        { name: "Submit ticket", href: "#" },
-        { name: "Documentation", href: "#" },
-        { name: "Guides", href: "#" },
-    ],
-    company: [
-        { name: "About", href: "#" },
-        { name: "Blog", href: "#" },
-        { name: "Jobs", href: "#" },
-        { name: "Press", href: "#" },
-    ],
-    legal: [
-        { name: "Terms of service", href: "#" },
-        { name: "Privacy policy", href: "#" },
-        { name: "License", href: "#" },
-    ],
+    support: [{ name: "Contact", href: "#" }],
+    // company: [
+    //     { name: "About", href: "#" },
+    //     { name: "Blog", href: "#" },
+    //     { name: "Jobs", href: "#" },
+    //     { name: "Press", href: "#" },
+    // ],
+    legal: [{ name: "Privacy policy", href: "#" }],
     social: [
         {
             name: "Facebook",
@@ -157,7 +147,7 @@ export default function Footer() {
                                 </ul>
                             </div>
                         </div>
-                        <div className="md:grid md:grid-cols-2 md:gap-8">
+                        {/* <div className="md:grid md:grid-cols-2 md:gap-8">
                             <div>
                                 <h3 className="text-sm/6 font-semibold text-gray-900">
                                     Company
@@ -192,12 +182,12 @@ export default function Footer() {
                                     ))}
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
                     <p className="text-sm/6 text-gray-600">
-                        &copy; 2024 Your Company, Inc. All rights reserved.
+                        &copy; 2025 Prepflowlabs. All rights reserved.
                     </p>
                 </div>
             </div>

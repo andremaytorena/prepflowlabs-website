@@ -14,3 +14,30 @@
   -moz-osx-font-smoothing: grayscale;
   
 }
+
+@theme {
+  /* sizing */
+  --max-height-100: 28rem;
+  --max-height-110: 30rem;
+  --max-height-120: 32rem;
+  --height-90: 22rem;
+
+  /* type */
+  --font-size-2xs: 0.65rem;
+  --font-size-3xs: 0.50rem;
+
+  /* colors */
+  --color-accent: #C33764;
+  --color-gray: #DDE1E5;
+  --color-accent-rgb: 158 122 216;
+
+  --color-accenthighlight: rgb(var(--color-accent-rgb) / 80%);
+  --color-accentdim: rgb(var(--color-accent-rgb) / 50%);
+  --color-accentbg: rgb(var(--color-accent-rgb) / 20%);
+
+  /* custom breakpoint */
+  --breakpoint-16inch: 1550px;
+
+  /* animations */
+  --animation-shimmer: shimmer 2s infinite linear;
+}

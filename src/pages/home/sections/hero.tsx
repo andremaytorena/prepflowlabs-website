@@ -9,8 +9,8 @@ import { HiOutlineTruck } from "react-icons/hi";
 
 const sections = [
     { label: "Generate plans", image: "/optimize1.png", icon: RiAiGenerate },
-    { label: "Confirm plan", image: "/dash.png", icon: FaRegCheckCircle },
-    { label: "Create shipment", image: "/dash.png", icon: HiOutlineTruck },
+    { label: "Confirm plan", image: "/optimize2.png", icon: FaRegCheckCircle },
+    { label: "Box plan", image: "/optimize3.png", icon: HiOutlineTruck },
 ];
 
 type Section = { label: string; icon: any };
@@ -127,7 +127,8 @@ function Hero() {
             </p>
 
             <div className="mt-10">
-                <button
+                <a
+                    href="https://app.prepflowlabs.com/sign-up"
                     className="group relative inline-flex items-center justify-center gap-x-2 px-6 sm:py-3 py-2.5 text-base font-medium text-white rounded-xl
                  bg-[linear-gradient(60deg,#C33764,#302B63)] shadow-[0_0_10px_rgba(195,55,100,0.6)]
                  cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden"
@@ -145,7 +146,7 @@ function Hero() {
                         size={20}
                         className="absolute right-6 transition-all duration-300 opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1"
                     />
-                </button>
+                </a>
             </div>
 
             <SectionPicker
