@@ -18,7 +18,7 @@ const navigation = {
     social: [
         {
             name: "Discord",
-            href: "https://discord.gg/sFEYtxd2FA",
+            href: "https://discord.gg/XFZnBejy",
             icon: FaDiscord,
         },
         // {
