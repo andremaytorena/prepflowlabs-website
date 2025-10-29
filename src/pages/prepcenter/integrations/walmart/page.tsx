@@ -1,6 +1,5 @@
 /** @format */
 
-import { AdvancedCard } from "../../../../components/advancedCard";
 import AnimatedBackground from "../../../../components/animatedBackground";
 import Footer from "../../../../components/footer";
 import Header from "../../../../components/header";
@@ -8,7 +7,7 @@ import { MdNewLabel } from "react-icons/md";
 import { FaBoxesStacked } from "react-icons/fa6";
 import { FaRegListAlt } from "react-icons/fa";
 
-const features = [
+export const features = [
     {
         name: "Listings.",
         description:
