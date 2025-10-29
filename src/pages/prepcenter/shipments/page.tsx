@@ -84,7 +84,7 @@ function Features() {
 
 const stats = [
     { id: 1, name: "Shipments shipped", value: "10,000+" },
-    { id: 2, name: "Units processed", value: "400k+" },
+    { id: 2, name: "Units processed", value: "1M+" },
     { id: 3, name: "Guaranteed time saved", value: "100%" },
     { id: 4, name: "Custom workflows", value: "4+" },
 ];

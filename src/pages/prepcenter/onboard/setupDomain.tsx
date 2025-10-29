@@ -101,11 +101,11 @@ export default function SetupDomain() {
     ];
 
     const blackBoxDomains = [
-        { type: "CNAME", name: "api", value: "zvf55xzx.up.railway.app" },
+        { type: "CNAME", name: "apiv2", value: "5k7i0d51.up.railway.app" },
         {
             type: "CNAME",
             name: "dashboard",
-            value: "romologistics-dashboard.pages.dev",
+            value: "lakesidefulfillment-dashboard.pages.dev",
         },
     ];
 
@@ -115,7 +115,7 @@ export default function SetupDomain() {
 
     // ✅ Use correct domains list based on param
     const activeDomains =
-        company === "romologistics" ? blackBoxDomains : domains;
+        company === "lakesidefulfillment" ? blackBoxDomains : domains;
 
     return (
         <div className="items-center flex flex-col justify-center pt-10 ">

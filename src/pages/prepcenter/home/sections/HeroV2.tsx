@@ -3,6 +3,12 @@ import { FaChevronRight } from "react-icons/fa";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import KpisOverviewImage from "../../../../assets/prepcenter/kpisOverview.png";
 
+const stats = [
+    { id: 1, name: "Prep centers", value: "10+" },
+    { id: 2, name: "Units processed", value: "1M+" },
+    { id: 3, name: "Integrations", value: "4+" },
+];
+
 export function HeroV2() {
     return (
         <div className="relative isolate overflow-hidden ">
@@ -32,9 +38,10 @@ export function HeroV2() {
             <div className="mx-auto max-w-7xl px-6 pt-10 lg:flex lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
                     <h1 className="font-bold text-4xl sm:text-5xl/tight max-w-xl text-left">
-                        Optimize your prep center workflow.
+                        Optimize your Prep Center Workflow.
                     </h1>
-                    <p className="mx-auto mt-6 text-slate-700 font-medium max-w-2xl text-lg tracking-tight ">
+
+                    <p className="mx-auto mt-6 text-slate-700 font-medium max-w-2xl ">
                         Most prep center management systems are slow and
                         inefficient. We make sure to provide smooth and custom
                         solution for your specific needs and branding.
@@ -42,11 +49,11 @@ export function HeroV2() {
                     <div className="mt-10 flex justify-start gap-x-6">
                         <a
                             href="/prepcenter/register"
-                            className="group text-sm relative inline-flex items-center justify-center gap-x-2 px-6 py-2 font-medium text-white rounded-xl
+                            className="group text-sm relative inline-flex items-center justify-center gap-x-2 px-6 py-2 font-semibold text-white rounded-xl
                                           bg-[linear-gradient(60deg,#C33764,#302B63)]
                                           cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden"
                         >
-                            <p>Start your free trial</p>
+                            <p>Start Your Free Trial</p>
 
                             {/* Chevron Right (default) */}
                             <FaChevronRight
@@ -61,6 +68,19 @@ export function HeroV2() {
                             />
                         </a>
                     </div>
+                    <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 text-gray-900 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+                        {stats.map((stat) => (
+                            <div
+                                key={stat.id}
+                                className="flex flex-col gap-y-3 border-l border-gray-900/15 pl-6"
+                            >
+                                <dt className="text-sm/6">{stat.name}</dt>
+                                <dd className="order-first text-3xl font-semibold tracking-tight">
+                                    {stat.value}
+                                </dd>
+                            </div>
+                        ))}
+                    </dl>
                 </div>
                 <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none xl:ml-32">
                     <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">

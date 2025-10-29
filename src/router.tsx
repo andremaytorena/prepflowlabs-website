@@ -17,6 +17,7 @@ import NotFound from "./pages/notfound/page";
 import PrivacyPolicy from "./pages/privacy-policy/page";
 import OnboardCompany from "./pages/prepcenter/onboard/onboardCompany";
 import SetupDomain from "./pages/prepcenter/onboard/setupDomain";
+import WalmartIntegrationPage from "./pages/prepcenter/integrations/walmart/page";
 
 // const Home = lazy(() => import("./pages/home/page"));
 // const NotFound = lazy(() => import("./pages/not-found/page"));
@@ -38,6 +39,11 @@ const routes = createBrowserRouter([
     { path: "/prepcenter/affiliates", element: <PrepcenterReferrals /> },
     { path: "/prepcenter/employees", element: <PrepcenterEmployees /> },
     { path: "/prepcenter/register", element: <PrepcenterRegister /> },
+
+    {
+        path: "/prepcenter/walmart-integration",
+        element: <WalmartIntegrationPage />,
+    },
 
     { path: "/prepcenter/onboard", element: <OnboardCompany /> },
     { path: "/prepcenter/onboard/domains", element: <SetupDomain /> },

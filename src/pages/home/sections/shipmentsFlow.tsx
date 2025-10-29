@@ -50,14 +50,14 @@ export default function ShipmentsFlow() {
                 no guesswork.
             </p>
 
-            <div className="flex flex-row px-4 no-scrollbar items-center overflow-x-scroll w-full sm:max-w-6xl gap-x-6 pt-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-row px-4 pb-1 no-scrollbar items-center overflow-x-scroll w-full sm:max-w-6xl gap-x-6 pt-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {sections.map((section) => (
                     <div
                         onClick={() => setSelectedSection(section.label)}
                         className={`${
                             section.label === selectedSection
                                 ? "border-accent bg-white"
-                                : "border-slate-300 hover:border-slate-400 bg-[#DDE1E5]"
+                                : "border-slate-300 hover:border-slate-400 bg-[#DDE1E5]/50"
                         } cursor-pointer border sm:w-full sm:min-w-min min-w-72 rounded-lg shadow-sm transition-all px-4 py-4 h-36 flex flex-col space-y-0.5`}
                     >
                         <p className="font-semibold text-base">
@@ -69,41 +69,6 @@ export default function ShipmentsFlow() {
                     </div>
                 ))}
             </div>
-
-            {/* <div
-                className="
-          flex gap-4 pt-6
-          overflow-x-scroll w-full
-          snap-x snap-mandatory
-           px-4 sm:mx-0 sm:px-0 ml-10
-          sm:flex-wrap sm:justify-center sm:max-w-6xl
-          [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-        "
-            >
-                {sections.map((section) => (
-                    <div
-                        key={section.label}
-                        onClick={() => setSelectedSection(section.label)}
-                        className={`${
-                            section.label === selectedSection
-                                ? "border-accent bg-white"
-                                : "border-slate-300 hover:border-slate-400 bg-[#DDE1E5]"
-                        } 
-              cursor-pointer border rounded-lg shadow-sm transition-all px-4 py-4
-              h-40
-              shrink-0 snap-start basis-72
-              sm:basis-[calc(50%-0.5rem)] lg:basis-[calc(25%-0.75rem)]
-            `}
-                    >
-                        <p className="font-semibold text-base">
-                            {section.label}
-                        </p>
-                        <p className="text-slate-700 font-medium text-sm">
-                            {section.description}
-                        </p>
-                    </div>
-                ))}
-            </div> */}
 
             <div className="relative overflow-hidden pt-10">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
