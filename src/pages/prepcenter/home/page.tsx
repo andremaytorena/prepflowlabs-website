@@ -1,5 +1,5 @@
 /** @format */
-import AnimatedBackground from "../../../components/animatedBackground";
+// import AnimatedBackground from "../../../components/animatedBackground";
 import Footer from "../../../components/footer";
 import Header from "../../../components/header";
 import ApiShowcase from "./sections/apiSection";
@@ -16,7 +16,7 @@ function PrepcenterHomePage() {
     return (
         <div className="relative min-h-screen overflow-hidden">
             {/* Animated Background */}
-            <AnimatedBackground />
+            {/* <AnimatedBackground /> */}
 
             {/* Content */}
             <Header />
