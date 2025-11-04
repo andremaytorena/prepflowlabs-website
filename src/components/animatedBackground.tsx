@@ -1,8 +1,20 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const AnimatedBackground: React.FC = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    // 🚫 Disable the entire background on mobile
+    if (isMobile) return null;
+
     return (
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
             {/* Main Background - Slightly toned down */}
