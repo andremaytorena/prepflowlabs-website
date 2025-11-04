@@ -79,7 +79,7 @@ function useInView<T extends HTMLElement>(
 
 export default function ApiShowcase() {
     const adminSnippet = [
-        "# Admin example with service key",
+        "# Client example with client key",
         "curl https://api.yourdomain.com/v1/inbound \\",
         "  -H 'Authorization: Bearer sk_live_***' \\",
         "  -H 'Content-Type: application/json' \\",
