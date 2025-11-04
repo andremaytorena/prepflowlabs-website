@@ -164,7 +164,7 @@ function FeaturesMobile() {
                         isActive
                     />
                     <div className="relative mt-10 pb-10">
-                        <div className="absolute -inset-x-4 top-8 bottom-0 bg-slate-200 sm:-inset-x-6" />
+                        <div className="absolute -inset-x-4 top-8 bottom-0 bg-gray/60 sm:-inset-x-6" />
                         <div className="relative mx-auto w-211 overflow-hidden rounded-xl bg-white shadow-lg ring-1 shadow-slate-900/5 ring-slate-500/10">
                             <img
                                 className="w-full"
@@ -203,7 +203,7 @@ function FeaturesDesktop() {
                             />
                         ))}
                     </TabList>
-                    <TabPanels className="relative mt-20 overflow-hidden rounded-4xl bg-[#DDE1E5] px-14 py-16 xl:px-16">
+                    <TabPanels className="relative mt-20 overflow-hidden rounded-4xl bg-gray/60 px-14 py-16 xl:px-16">
                         <div className="-mx-5 flex">
                             {features.map((feature, featureIndex) => (
                                 <TabPanel

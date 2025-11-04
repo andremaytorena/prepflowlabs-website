@@ -2,13 +2,15 @@
 import AnimatedBackground from "../../../components/animatedBackground";
 import Footer from "../../../components/footer";
 import Header from "../../../components/header";
-import { CallToAction } from "./sections/CallToAction";
+import ApiShowcase from "./sections/apiSection";
 import ClientFeatures from "./sections/ClientFeatures";
 import Contact from "./sections/Contact";
-import { Faqs } from "./sections/Faqs";
+import FeaturesFlow from "./sections/featuresFlow";
 import { HeroV2 } from "./sections/HeroV2";
-import { PrimaryFeatures } from "./sections/PrimaryFeatures";
+import IntegrationsSection from "./sections/integrations";
+import MigrationPlan from "./sections/migrationPlan";
 import { SecondaryFeatures } from "./sections/SecondaryFeatures";
+import ShipmentsFlow from "./sections/shipmentsFlow";
 
 function PrepcenterHomePage() {
     return (
@@ -21,17 +23,21 @@ function PrepcenterHomePage() {
             <div className="mt-24 relative z-10">
                 <HeroV2 />
 
-                <PrimaryFeatures />
+                <ShipmentsFlow />
+
+                <IntegrationsSection />
+
+                <FeaturesFlow />
 
                 <SecondaryFeatures />
 
-                <CallToAction />
+                <MigrationPlan />
+
+                <ApiShowcase />
 
                 <ClientFeatures />
 
                 <Contact />
-
-                <Faqs />
 
                 <Footer />
             </div>

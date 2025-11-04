@@ -42,9 +42,9 @@ export function HeroV2() {
                     </h1>
 
                     <p className="mx-auto mt-6 text-slate-700 font-medium max-w-2xl ">
-                        Most prep center management systems are slow and
-                        inefficient. We make sure to provide smooth and custom
-                        solution for your specific needs and branding.
+                        Every minute counts in prep and fulfillment. PrepFlow
+                        streamlines each step to save time, cut errors, and keep
+                        shipments moving.
                     </p>
                     <div className="mt-10 flex justify-start gap-x-6">
                         <a
@@ -68,11 +68,12 @@ export function HeroV2() {
                             />
                         </a>
                     </div>
-                    <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 text-gray-900 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-                        {stats.map((stat) => (
+                    <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-3 gap-x-8 gap-y-10 text-gray-900 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+                        {stats.map((stat, index) => (
                             <div
                                 key={stat.id}
-                                className="flex flex-col gap-y-3 border-l border-gray-900/15 pl-6"
+                                className={`flex flex-col gap-y-3 border-l border-gray-900/15 sm:pl-6 
+        ${index === 0 ? "border-l-0 pl-0" : "pl-6"} sm:border-l`}
                             >
                                 <dt className="text-sm/6">{stat.name}</dt>
                                 <dd className="order-first text-3xl font-semibold tracking-tight">
