@@ -10,7 +10,7 @@ import { HeroV2 } from "./sections/HeroV2";
 import IntegrationsSection from "./sections/integrations";
 import MigrationPlan from "./sections/migrationPlan";
 import { SecondaryFeatures } from "./sections/SecondaryFeatures";
-// import ShipmentsFlow from "./sections/shipmentsFlow";
+import ShipmentsFlow from "./sections/shipmentsFlow";
 
 function PrepcenterHomePage() {
     return (
@@ -23,7 +23,7 @@ function PrepcenterHomePage() {
             <div className="mt-24 relative z-10">
                 <HeroV2 />
 
-                {/* <ShipmentsFlow /> */}
+                <ShipmentsFlow />
 
                 <IntegrationsSection />
 
