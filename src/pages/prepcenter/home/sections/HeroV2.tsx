@@ -9,7 +9,7 @@ const stats = [
     { id: 3, name: "Integrations", value: "4+" },
 ];
 
-export function HeroV2() {
+export default function HeroV2() {
     return (
         <div className="relative isolate overflow-hidden ">
             <svg
