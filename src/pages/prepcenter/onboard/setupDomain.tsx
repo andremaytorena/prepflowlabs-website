@@ -92,11 +92,11 @@ export default function SetupDomain() {
     };
 
     const domains = [
-        { type: "CNAME", name: "api", value: "76jyodwb.up.railway.app" },
+        { type: "CNAME", name: "api", value: "4wmztkoy.up.railway.app" },
         {
             type: "CNAME",
             name: "dashboard",
-            value: "lurelogistics-dashboard.pages.dev",
+            value: "kkprep-dashboard.pages.dev",
         },
     ];
 

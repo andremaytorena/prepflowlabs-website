@@ -11,9 +11,9 @@ export default function MigrationPlan() {
                 Switch to PrepFlow with Zero Headache
             </h1>
             <p className="mt-4 text-slate-700 font-medium sm:mx-0 mx-4">
-                Whether you're running another WMS like PrepBusiness, PrepFlow
-                makes the switch easy. Migrate your data, keep your workflows,
-                and start shipping smarter today.
+                Whether you're running another WMS like PrepBusiness or
+                PrepShipHub, PrepFlow makes the switch easy. Migrate your data,
+                keep your workflows, and start shipping smarter today.
             </p>
 
             <div className="mt-10 grid md:grid-cols-3 gap-12 sm:mx-0 mx-4">
