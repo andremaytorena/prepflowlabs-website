@@ -96,7 +96,8 @@ const features = [
 const items = [
     { label: "Features", href: "/" },
     { label: "Pricing", href: "/pricing" },
-    // { label: "Resources", href: "#resources" },
+    { label: "Prepcenters", href: "/prepcenter" },
+    { label: "Documentation", href: "https://docs.prepflowlabs.com" },
 ];
 
 function MobileNavIcon({ open }: { open: boolean }) {
@@ -229,6 +230,9 @@ function MobileNavigation() {
                 <MobileNavLink href="/">Features</MobileNavLink>
                 <MobileNavLink href="/pricing">Pricing</MobileNavLink>
                 <MobileDropdown label="Prepcenters" sections={features} />
+                <MobileNavLink href="https://docs.prepflowlabs.com">
+                    Documentation
+                </MobileNavLink>
             </PopoverPanel>
         </Popover>
     );
@@ -347,21 +351,32 @@ export default function Header() {
                         <div className="hidden md:flex flex-1 justify-center">
                             <ul className="flex items-center gap-12 font-medium text-slate-800 text-sm">
                                 {items.map((item) => (
-                                    <li key={item.label}>
-                                        <a
-                                            href={item.href}
-                                            className="transition-colors hover:text-slate-950"
-                                        >
-                                            {item.label}
-                                        </a>
-                                    </li>
+                                    <>
+                                        {item.label !== "Prepcenters" ? (
+                                            <li key={item.label}>
+                                                <a
+                                                    target={
+                                                        item.label ===
+                                                        "Documentation"
+                                                            ? "_blank"
+                                                            : ""
+                                                    }
+                                                    href={item.href}
+                                                    className="transition-colors hover:text-slate-950"
+                                                >
+                                                    {item.label}
+                                                </a>
+                                            </li>
+                                        ) : (
+                                            <HoverFlyoutMenu
+                                                label="Prep Centers"
+                                                sections={features}
+                                                gridCols={2}
+                                                isScrolled={isScrolled}
+                                            />
+                                        )}
+                                    </>
                                 ))}
-                                <HoverFlyoutMenu
-                                    label="Prep Centers"
-                                    sections={features}
-                                    gridCols={2}
-                                    isScrolled={isScrolled}
-                                />
                             </ul>
                         </div>
 
