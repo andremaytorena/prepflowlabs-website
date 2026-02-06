@@ -92,11 +92,16 @@ export default function SetupDomain() {
     };
 
     const domains = [
-        { type: "CNAME", name: "api", value: "nos9x8f8.up.railway.app" },
+        { type: "CNAME", name: "api", value: "bb2gu8zq.up.railway.app" },
+        {
+            type: "TXT",
+            name: "_railway-verify.api.fbaprepared.com",
+            value: "railway-verify=5ea453edace1d3881ba845deafaef6a330761cfc74c37b72d4ac7d479e4086a0",
+        },
         {
             type: "CNAME",
             name: "dashboard",
-            value: "lfod-dashboard.pages.dev",
+            value: "fbaprepared-dashboard.pages.dev",
         },
     ];
 
