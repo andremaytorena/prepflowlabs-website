@@ -51,21 +51,25 @@ function DomainRecord({
         <div>
             Record {index}
             <div className="bg-gray-100 rounded-lg">
-                <div className="grid grid-cols-3 text-base px-4 py-4">
+                <div className="grid grid-cols-3 text-base px-4 py-4 gap-x-10">
                     <div>
                         <h2 className="font-medium text-base">Type</h2>
                         <p>{type}</p>
                     </div>
+
                     <div>
                         <h2 className="font-medium text-base">Name</h2>
-                        <p>{name}</p>
+                        <div className="flex flex-row items-start gap-2">
+                            <p className="break-all flex-1">{name}</p>
+                            <CopyButton textToCopy={name} />
+                        </div>
                     </div>
                     <div>
                         <h2 className="font-medium text-base">Value</h2>
-                        <p className="flex flex-row items-center">
-                            {value}
+                        <div className="flex flex-row items-start gap-2">
+                            <p className="break-all flex-1">{value}</p>
                             <CopyButton textToCopy={value} />
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

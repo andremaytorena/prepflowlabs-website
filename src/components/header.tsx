@@ -113,14 +113,14 @@ function MobileNavIcon({ open }: { open: boolean }) {
                 d="M0 1H14M0 7H14M0 13H14"
                 className={clsx(
                     "origin-center transition",
-                    open && "scale-90 opacity-0"
+                    open && "scale-90 opacity-0",
                 )}
             />
             <path
                 d="M2 2L12 12M12 2L2 12"
                 className={clsx(
                     "origin-center transition",
-                    !open && "scale-90 opacity-0"
+                    !open && "scale-90 opacity-0",
                 )}
             />
         </svg>
@@ -165,7 +165,7 @@ function MobileDropdown({
                         <svg
                             className={clsx(
                                 "h-5 w-5 transform transition-transform",
-                                open && "rotate-180"
+                                open && "rotate-180",
                             )}
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -266,7 +266,7 @@ export default function Header() {
         const mq = window.matchMedia("(max-width: 767px)");
         const handler = (e: MediaQueryListEvent | MediaQueryList) =>
             setIsMobile(
-                "matches" in e ? e.matches : (e as MediaQueryList).matches
+                "matches" in e ? e.matches : (e as MediaQueryList).matches,
             );
 
         // initial
@@ -297,8 +297,8 @@ export default function Header() {
     const containerWidth = isMobile
         ? "100%"
         : isCompact
-        ? "min(1100px, 70%)"
-        : "75%";
+          ? "min(1100px, 70%)"
+          : "75%";
 
     const containerMarginTop = isCompact ? 12 : 16;
 
