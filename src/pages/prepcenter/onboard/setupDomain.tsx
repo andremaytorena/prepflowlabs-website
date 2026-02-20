@@ -96,16 +96,16 @@ export default function SetupDomain() {
     };
 
     const domains = [
-        { type: "CNAME", name: "api", value: "s01unqiv.up.railway.app" },
+        { type: "CNAME", name: "api", value: "qvkbnvhc.up.railway.app" },
         {
             type: "TXT",
-            name: "_railway-verify.api.fbaprepared.com",
-            value: "railway-verify=5ea453edace1d3881ba845deafaef6a330761cfc74c37b72d4ac7d479e4086a0",
+            name: "_railway-verify.api",
+            value: "railway-verify=643fbcaf3a902e1af5a3351404213d422d4164a349313346598e9a573d91eca5",
         },
         {
             type: "CNAME",
-            name: "dashboard",
-            value: "fbaprepared-dashboard.pages.dev",
+            name: "dash",
+            value: "hexprep-dashboard.pages.dev",
         },
     ];
 
