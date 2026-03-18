@@ -1,11 +1,12 @@
 /** @format */
 
 import { CheckIcon, ClipboardDocumentIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { apiRequest } from "../../../utils/api/apiRequest";
 import { FileUpload } from "../../../utils/files/fileUpload";
 import { Button } from "../../../components/Button";
 import LoadingWheel from "../home/sections/LoadingWheel";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function CopyButton({ textToCopy }: { textToCopy: string }) {
     const [copied, setCopied] = useState(false);
@@ -82,6 +83,7 @@ export const setupDomain = async (file: File | null) => {
 };
 
 export default function SetupDomain() {
+    const { tenant } = useParams();
     const [loading, setLoading] = useState(false);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -95,119 +97,121 @@ export default function SetupDomain() {
         setLoading(false);
     };
 
-    const domains = [
-        { type: "CNAME", name: "api", value: "qvkbnvhc.up.railway.app" },
-        {
-            type: "TXT",
-            name: "_railway-verify.api",
-            value: "railway-verify=643fbcaf3a902e1af5a3351404213d422d4164a349313346598e9a573d91eca5",
-        },
-        {
-            type: "CNAME",
-            name: "dash",
-            value: "hexprep-dashboard.pages.dev",
-        },
-    ];
+    const [fetchLoading, setFetchLoading] = useState(false);
+    const navigate = useNavigate();
+    const [domains, setDomains] = useState<any[]>([]);
+    const fetchData = async () => {
+        setFetchLoading(true);
+        const res = await apiRequest(`/core/tenants/${tenant}/dns-records`);
+        if (res.status === "success") {
+            setDomains(res.data.records);
+        } else {
+            navigate("/not-found");
+        }
+        setFetchLoading(false);
+    };
 
-    const blackBoxDomains = [
-        { type: "CNAME", name: "apiv2", value: "5k7i0d51.up.railway.app" },
-        {
-            type: "CNAME",
-            name: "dashboard",
-            value: "lakesidefulfillment-dashboard.pages.dev",
-        },
-    ];
-
-    // ✅ Detect query param
-    const searchParams = new URLSearchParams(window.location.search);
-    const company = searchParams.get("company");
-
-    // ✅ Use correct domains list based on param
-    const activeDomains =
-        company === "lakesidefulfillment" ? blackBoxDomains : domains;
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
-        <div className="items-center flex flex-col justify-center pt-10 ">
-            {!isSubmitted ? (
-                <>
-                    <div className="space-y-12 sm:w-2/5 w-full sm:px-0 px-5">
-                        <h2 className="font-bold text-gray-900 text-2xl">
-                            Onboard Company
-                        </h2>
-                        <div>
-                            <h2 className="text-base/7 font-semibold text-gray-900 pb-2">
-                                Setup Domain
-                            </h2>
-                            <p className="pb-2">
-                                Please add these following records to your
-                                domain custom records. If you are unsure how to,
-                                here is a guide,{" "}
-                                <a
-                                    className="text-accent cursor-pointer font-medium"
-                                    href="https://www.youtube.com/watch?v=P-hRkV6pI0M"
-                                >
-                                    press here to see the guide.
-                                </a>{" "}
-                                If you are not using Namecheap, the process is
-                                the same, if unsure google "How to add domain
-                                record to domain provider"
-                            </p>
-                            <div className="flex flex-col space-y-2">
-                                {activeDomains.map((domain, index) => (
-                                    <DomainRecord
-                                        key={index}
-                                        type={domain.type}
-                                        name={domain.name}
-                                        value={domain.value}
-                                        index={index + 1}
-                                    />
-                                ))}
+        <>
+            {!fetchLoading ? (
+                <div className="items-center flex flex-col justify-center pt-10 ">
+                    {!isSubmitted ? (
+                        <>
+                            <div className="space-y-12 sm:w-2/5 w-full sm:px-0 px-5">
+                                <h2 className="font-bold text-gray-900 text-2xl">
+                                    Onboard Company
+                                </h2>
+                                <div>
+                                    <h2 className="text-base/7 font-semibold text-gray-900 pb-2">
+                                        Setup Domain
+                                    </h2>
+                                    <p className="pb-2">
+                                        Please add these following records to
+                                        your domain custom records. If you are
+                                        unsure how to, here is a guide,{" "}
+                                        <a
+                                            className="text-accent cursor-pointer font-medium"
+                                            href="https://www.youtube.com/watch?v=P-hRkV6pI0M"
+                                        >
+                                            press here to see the guide.
+                                        </a>{" "}
+                                        If you are not using Namecheap, the
+                                        process is the same, if unsure google
+                                        "How to add domain record to domain
+                                        provider"
+                                    </p>
+                                    <div className="flex flex-col space-y-2">
+                                        {domains.map((domain, index) => (
+                                            <DomainRecord
+                                                key={index}
+                                                type={domain.type}
+                                                name={domain.name}
+                                                value={domain.value}
+                                                index={index + 1}
+                                            />
+                                        ))}
+                                    </div>
+                                    <div className="col-span-full border-b border-gray-900/10 pb-12 pt-4">
+                                        <label
+                                            htmlFor="cover-photo"
+                                            className="block text-sm/6 font-medium text-gray-900"
+                                        >
+                                            Confirm Photo
+                                        </label>
+                                        <p className="text-sm ">
+                                            Please upload a screenshot of the
+                                            uploaded domain records so that we
+                                            can verify they are correctly
+                                            inputted.
+                                        </p>
+                                        <FileUpload
+                                            selectedFile={selectedFile}
+                                            setSelectedFile={setSelectedFile}
+                                            fileType={"Any"}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <div className="col-span-full border-b border-gray-900/10 pb-12 pt-4">
-                                <label
-                                    htmlFor="cover-photo"
-                                    className="block text-sm/6 font-medium text-gray-900"
-                                >
-                                    Confirm Photo
-                                </label>
-                                <p className="text-sm ">
-                                    Please upload a screenshot of the uploaded
-                                    domain records so that we can verify they
-                                    are correctly inputted.
-                                </p>
-                                <FileUpload
-                                    selectedFile={selectedFile}
-                                    setSelectedFile={setSelectedFile}
-                                    fileType={"Any"}
-                                />
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="mt-6 flex items-center justify-end gap-x-6 pb-20">
-                        <button
-                            type="button"
-                            className="text-sm/6 font-semibold text-gray-900"
-                        >
-                            Cancel
-                        </button>
-                        <Button onClick={handleSave} className="gap-x-2">
-                            {loading ? <LoadingWheel color="white" /> : null}
-                            <p>Save</p>
-                        </Button>
-                    </div>
-                </>
+                            <div className="mt-6 flex items-center justify-end gap-x-6 pb-20">
+                                <button
+                                    type="button"
+                                    className="text-sm/6 font-semibold text-gray-900"
+                                >
+                                    Cancel
+                                </button>
+                                <Button
+                                    onClick={handleSave}
+                                    className="gap-x-2"
+                                >
+                                    {loading ? (
+                                        <LoadingWheel color="white" />
+                                    ) : null}
+                                    <p>Save</p>
+                                </Button>
+                            </div>
+                        </>
+                    ) : (
+                        <div className="flex flex-col items-center justify-center pt-20">
+                            <div className="h-36 w-36 bg-green-100 rounded-full items-center justify-center flex">
+                                <CheckIcon className="text-green-500 h-20 w-20" />
+                            </div>
+                            <p className="pt-6 max-w-3/5 text-center">
+                                Your domain details have been recorded. We will
+                                follow up shortly with more instructions.
+                            </p>
+                        </div>
+                    )}
+                </div>
             ) : (
-                <div className="flex flex-col items-center justify-center pt-20">
-                    <div className="h-36 w-36 bg-green-100 rounded-full items-center justify-center flex">
-                        <CheckIcon className="text-green-500 h-20 w-20" />
-                    </div>
-                    <p className="pt-6 max-w-3/5 text-center">
-                        Your domain details have been recorded. We will follow
-                        up shortly with more instructions.
-                    </p>
+                <div className="flex flex-row items-center justify-center h-screen">
+                    <LoadingWheel />
                 </div>
             )}
-        </div>
+        </>
     );
 }

@@ -43,7 +43,7 @@ const routes = createBrowserRouter([
     },
 
     { path: "/prepcenter/onboard", element: <OnboardCompany /> },
-    { path: "/prepcenter/onboard/domains", element: <SetupDomain /> },
+    { path: "/prepcenter/onboard/:tenant/domains", element: <SetupDomain /> },
 
     { path: "/privacy-policy", element: <PrivacyPolicy /> },
 
