@@ -16,9 +16,9 @@ export const onboardCompany = async (
     logo_file: File | null,
     password: string,
     confirm_password: string,
-    accent_color: string
+    accent_color: string,
 ) => {
-    return apiRequest("/whitelabel/onboard", "POST", logo_file, true, {
+    return apiRequest("/core/tenants/onboard", "POST", logo_file, true, {
         first_name,
         last_name,
         email,
@@ -42,39 +42,48 @@ export default function OnboardCompany() {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const handleSave = async () => {
+        setError(null);
+
+        if (!firstName) return setError("First name is required");
+        if (!lastName) return setError("Last name is required");
+        if (!email) return setError("Email is required");
+        if (!companyName) return setError("Company name is required");
+        if (!domain) return setError("Domain is required");
+        if (!accentColor) return setError("Accent color is required");
+        if (!selectedFile) return setError("Company logo is required");
+        if (!password) return setError("Password is required");
+        if (!confirmPassword) return setError("Please confirm your password");
+        if (password !== confirmPassword)
+            return setError("Passwords do not match");
+
         setLoading(true);
-        if (!canSubmit) {
-            setLoading(false);
-            return;
+
+        try {
+            const data = await onboardCompany(
+                firstName,
+                lastName,
+                email,
+                companyName,
+                domain,
+                selectedFile,
+                password,
+                confirmPassword,
+                accentColor,
+            );
+
+            if (data.status === "success") {
+                setIsSubmitted(true);
+            } else {
+                setError(data.errors ? data.errors[0] : data.message);
+            }
+        } catch (err) {
+            setError("Network error. Please try again.");
         }
-        const data = await onboardCompany(
-            firstName,
-            lastName,
-            email,
-            companyName,
-            domain,
-            selectedFile,
-            password,
-            confirmPassword,
-            accentColor
-        );
-        if (data.status === "success") {
-            setIsSubmitted(true);
-        }
+
         setLoading(false);
     };
-
-    const canSubmit =
-        firstName.length > 0 &&
-        lastName.length > 0 &&
-        email.length > 0 &&
-        companyName.length > 0 &&
-        domain.length > 0 &&
-        password.length > 0 &&
-        confirmPassword.length > 0 &&
-        accentColor.length > 0 &&
-        selectedFile;
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -270,6 +279,12 @@ export default function OnboardCompany() {
                             </div>
                         </div>
                     </div>
+
+                    {error && (
+                        <div className=" mt-4 rounded-md bg-red-50 p-3 text-sm text-red-600 border border-red-200">
+                            {error}
+                        </div>
+                    )}
 
                     <div className="mt-6 flex items-center justify-end gap-x-6 pb-20">
                         <button

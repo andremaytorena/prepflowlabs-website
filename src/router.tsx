@@ -19,9 +19,6 @@ import OnboardCompany from "./pages/prepcenter/onboard/onboardCompany";
 import SetupDomain from "./pages/prepcenter/onboard/setupDomain";
 import WalmartIntegrationPage from "./pages/prepcenter/integrations/walmart/page";
 
-// const Home = lazy(() => import("./pages/home/page"));
-// const NotFound = lazy(() => import("./pages/not-found/page"));
-
 const routes = createBrowserRouter([
     { path: "/", element: <HomePage /> },
     { path: "/pricing", element: <PricingPage /> },
