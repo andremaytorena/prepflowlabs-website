@@ -95,9 +95,10 @@ const features = [
 
 const items = [
     { label: "Features", href: "/" },
-    { label: "Pricing", href: "/pricing" },
+    // { label: "Pricing", href: "/pricing" },
     { label: "Prepcenters", href: "/prepcenter" },
     { label: "Documentation", href: "https://docs.prepflowlabs.com" },
+    { label: "Contact", href: "/contact" },
 ];
 
 function MobileNavIcon({ open }: { open: boolean }) {
