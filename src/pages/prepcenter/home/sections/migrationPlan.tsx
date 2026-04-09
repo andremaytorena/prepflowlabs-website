@@ -42,7 +42,7 @@ export default function MigrationPlan() {
                     </h3>
                     <p className="mt-2 text-slate-600">
                         Set labels, storage locations and branding to match your
-                        business — custom for you.
+                        business, custom for you.
                     </p>
                 </div>
                 <div className="flex flex-col items-center">

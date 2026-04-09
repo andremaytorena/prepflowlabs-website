@@ -118,6 +118,19 @@ function Hero() {
 
     return (
         <div className="flex flex-col mx-auto items-center h-full relative ">
+            <div className="mb-6">
+                <div className="relative rounded-full px-3 py-0.5 text-sm font-medium text-slate-600 ring-1 ring-slate-300 hover:ring-accent/40 transition-all">
+                    Are you a prep center?{" "}
+                    <a
+                        href="/prepcenter"
+                        className="whitespace-nowrap font-semibold text-accent"
+                    >
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        Learn more <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
             <h1 className="font-bold text-3xl sm:text-5xl/tight max-w-xl text-center sm:mx-0 mx-4">
                 Stop Overpaying for Boxem or InventoryLab.
             </h1>
@@ -162,7 +175,7 @@ function Hero() {
                             alt="Prepflowlabs auto optimizer"
                             src={
                                 sections.find(
-                                    (s) => s.label === selectedSection
+                                    (s) => s.label === selectedSection,
                                 )?.image
                             }
                             width={2432}

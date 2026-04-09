@@ -1,61 +1,50 @@
 /** @format */
 import { useState } from "react";
-import { RiAiGenerate } from "react-icons/ri";
-import { FaRegCheckCircle } from "react-icons/fa";
-import { HiOutlineTruck } from "react-icons/hi";
-// Import responsive variants for ALL images (adjust widths to your real render size)
-import screenshotDashboard from "../../../../assets/prepcenter/dashboard.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
-import screenshotShipments from "../../../../assets/prepcenter/shipments.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
-import screenshotSchedule from "../../../../assets/prepcenter/schedule.jpg?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
-import screenshotKPIs from "../../../../assets/prepcenter/kpis.jpg?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
+import internalTicketsPic from "../../../../assets/prepcenter/ticketing/internal_tickets.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
+import clientTicketsPic from "../../../../assets/prepcenter/ticketing/client_tickets.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
+import communicationsPic from "../../../../assets/prepcenter/ticketing/communications.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
 
 type PictureData = {
     sources: { type: string; srcset: string }[];
     img: { src: string; width: number; height: number };
 };
 
-const sections = [
+const sections: {
+    label: string;
+    description: string;
+    image?: PictureData;
+}[] = [
     {
-        label: "Statistics",
+        label: "Client Tickets",
         description:
-            "View detailed reports and visual analytics to understand trends, identify bottlenecks, and make data-driven decisions.",
-        image: screenshotDashboard as PictureData,
-        icon: HiOutlineTruck,
+            "Clients can submit tickets for order inquiries, shipment changes, or special requests directly through their portal.",
+        image: clientTicketsPic as PictureData,
     },
     {
-        label: "KPIs",
+        label: "Internal Tickets",
         description:
-            "Track your most important metrics including turnaround time, productivity, and throughput to keep performance on target.",
-        image: screenshotKPIs as PictureData,
-        icon: RiAiGenerate,
+            "Log warehouse issues and assign them to team members for fast resolution.",
+        image: internalTicketsPic as PictureData,
     },
     {
-        label: "Shipment Management",
+        label: "Communications",
         description:
-            "Create, track, and manage all shipments in one place. Gain full visibility from receiving to delivery with real-time status updates.",
-        image: screenshotShipments as PictureData,
-        icon: HiOutlineTruck,
-    },
-    {
-        label: "Employee Tracking",
-        description:
-            "Monitor team activity and task completion to improve accountability and efficiency across your prep center.",
-        image: screenshotSchedule as PictureData,
-        icon: FaRegCheckCircle,
+            "Send mass announcements to clients or team members and keep threaded conversations on every ticket.",
+        image: communicationsPic as PictureData,
     },
 ];
 
-export default function FeaturesFlow() {
+export default function TicketingFlow() {
     const [selectedSection, setSelectedSection] = useState(sections[0].label);
 
     return (
         <div className="flex mt-20 flex-col mx-auto items-center h-full relative overflow-x-auto ">
             <h1 className="font-bold text-3xl sm:text-3xl/tight max-w-xl text-center sm:mx-0 mx-4">
-                Gain Total Visibility Into Your Operations
+                Resolve Issues Faster with Built-In Ticketing
             </h1>
             <p className="mt-4 text-slate-700 font-medium text-center sm:mx-0 mx-4">
-                Track employee performance, monitor shipments, and analyze KPIs
-                all from one centralized dashboard.
+                Manage internal warehouse tickets and client requests through
+                one unified system with full communication history.
             </p>
 
             <div className="flex flex-row px-4 pb-1 no-scrollbar items-center overflow-x-scroll w-full sm:max-w-6xl gap-x-6 pt-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -83,18 +72,18 @@ export default function FeaturesFlow() {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                         <div className="grid [&>*]:[grid-area:1/1]">
-                            {sections.map((section) => (
-                                <div
-                                    key={section.label}
-                                    className={`transition-opacity duration-200 ease-in-out ${
-                                        section.label === selectedSection
-                                            ? "opacity-100"
-                                            : "opacity-0 pointer-events-none"
-                                    }`}
-                                >
-                                    <picture>
+                            {sections.map((section) =>
+                                section.image ? (
+                                    <picture
+                                        key={section.label}
+                                        className={`transition-opacity duration-200 ease-in-out ${
+                                            section.label === selectedSection
+                                                ? "opacity-100"
+                                                : "opacity-0 pointer-events-none"
+                                        }`}
+                                    >
                                         {Array.isArray(
-                                            (section.image as any)?.sources
+                                            (section.image as any)?.sources,
                                         )
                                             ? (
                                                   section.image as any
@@ -106,7 +95,7 @@ export default function FeaturesFlow() {
                                                           srcSet={s.srcset}
                                                           sizes="(min-width:1024px) 960px, 100vw"
                                                       />
-                                                  )
+                                                  ),
                                               )
                                             : null}
 
@@ -123,8 +112,26 @@ export default function FeaturesFlow() {
                                             decoding="async"
                                         />
                                     </picture>
-                                </div>
-                            ))}
+                                ) : (
+                                    <div
+                                        key={section.label}
+                                        className={`transition-opacity duration-200 ease-in-out mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 bg-white flex items-center justify-center h-[300px] sm:h-[500px] lg:h-[600px] ${
+                                            section.label === selectedSection
+                                                ? "opacity-100"
+                                                : "opacity-0 pointer-events-none"
+                                        }`}
+                                    >
+                                        <div className="text-center px-8">
+                                            <p className="text-slate-400 font-semibold text-lg">
+                                                {section.label}
+                                            </p>
+                                            <p className="text-slate-300 text-sm mt-2">
+                                                Screenshot placeholder
+                                            </p>
+                                        </div>
+                                    </div>
+                                ),
+                            )}
                         </div>
                     </div>
                     <div aria-hidden="true" className="relative">

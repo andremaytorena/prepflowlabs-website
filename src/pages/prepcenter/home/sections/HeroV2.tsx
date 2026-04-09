@@ -4,8 +4,8 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import KpisOverviewImage from "../../../../assets/prepcenter/kpisOverview.png";
 
 const stats = [
-    { id: 1, name: "Prep centers", value: "10+" },
-    { id: 2, name: "Units processed", value: "1M+" },
+    { id: 1, name: "Prep centers", value: "20+" },
+    { id: 2, name: "Units processed", value: "4.5M+" },
     { id: 3, name: "Integrations", value: "4+" },
 ];
 

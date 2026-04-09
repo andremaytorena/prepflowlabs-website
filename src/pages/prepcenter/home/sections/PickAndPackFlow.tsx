@@ -1,61 +1,57 @@
 /** @format */
 import { useState } from "react";
-import { RiAiGenerate } from "react-icons/ri";
-import { FaRegCheckCircle } from "react-icons/fa";
-import { HiOutlineTruck } from "react-icons/hi";
-// Import responsive variants for ALL images (adjust widths to your real render size)
-import screenshotDashboard from "../../../../assets/prepcenter/dashboard.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
-import screenshotShipments from "../../../../assets/prepcenter/shipments.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
-import screenshotSchedule from "../../../../assets/prepcenter/schedule.jpg?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
-import screenshotKPIs from "../../../../assets/prepcenter/kpis.jpg?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
+import warehouseMappingPic from "../../../../assets/prepcenter/pickAndPack/warehouse_mapping.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
+import locationBarcodesPic from "../../../../assets/prepcenter/pickAndPack/location_barcodes.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
+import pickListsPic from "../../../../assets/prepcenter/pickAndPack/pick_lists.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
+import packVerifyPic from "../../../../assets/prepcenter/pickAndPack/pack_verify.png?w=640;960;1280;1536;1920;2560&format=avif;webp;png&quality=80&as=picture";
 
 type PictureData = {
     sources: { type: string; srcset: string }[];
     img: { src: string; width: number; height: number };
 };
 
-const sections = [
+const sections: {
+    label: string;
+    description: string;
+    image?: PictureData;
+}[] = [
     {
-        label: "Statistics",
+        label: "Warehouse Mapping",
         description:
-            "View detailed reports and visual analytics to understand trends, identify bottlenecks, and make data-driven decisions.",
-        image: screenshotDashboard as PictureData,
-        icon: HiOutlineTruck,
+            "Design your warehouse layout digitally. Define zones, aisles, shelves, and bins to mirror your physical space.",
+        image: warehouseMappingPic as PictureData,
     },
     {
-        label: "KPIs",
+        label: "Location Barcodes",
         description:
-            "Track your most important metrics including turnaround time, productivity, and throughput to keep performance on target.",
-        image: screenshotKPIs as PictureData,
-        icon: RiAiGenerate,
+            "Generate and print barcodes for every storage location. Scan to instantly identify where items live.",
+        image: locationBarcodesPic as PictureData,
     },
     {
-        label: "Shipment Management",
+        label: "Pick Lists",
         description:
-            "Create, track, and manage all shipments in one place. Gain full visibility from receiving to delivery with real-time status updates.",
-        image: screenshotShipments as PictureData,
-        icon: HiOutlineTruck,
+            "Create optimized pick lists that route workers through the warehouse efficiently, reducing travel time.",
+        image: pickListsPic as PictureData,
     },
     {
-        label: "Employee Tracking",
+        label: "Pack & Verify",
         description:
-            "Monitor team activity and task completion to improve accountability and efficiency across your prep center.",
-        image: screenshotSchedule as PictureData,
-        icon: FaRegCheckCircle,
+            "Scan items during packing to verify accuracy, catch errors before they ship, and log completion.",
+        image: packVerifyPic as PictureData,
     },
 ];
 
-export default function FeaturesFlow() {
+export default function PickAndPackFlow() {
     const [selectedSection, setSelectedSection] = useState(sections[0].label);
 
     return (
         <div className="flex mt-20 flex-col mx-auto items-center h-full relative overflow-x-auto ">
             <h1 className="font-bold text-3xl sm:text-3xl/tight max-w-xl text-center sm:mx-0 mx-4">
-                Gain Total Visibility Into Your Operations
+                Streamline Picking & Packing at Scale
             </h1>
             <p className="mt-4 text-slate-700 font-medium text-center sm:mx-0 mx-4">
-                Track employee performance, monitor shipments, and analyze KPIs
-                all from one centralized dashboard.
+                Map your warehouse, generate location barcodes, and run
+                systematic picking workflows, all from one system.
             </p>
 
             <div className="flex flex-row px-4 pb-1 no-scrollbar items-center overflow-x-scroll w-full sm:max-w-6xl gap-x-6 pt-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -83,18 +79,18 @@ export default function FeaturesFlow() {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                         <div className="grid [&>*]:[grid-area:1/1]">
-                            {sections.map((section) => (
-                                <div
-                                    key={section.label}
-                                    className={`transition-opacity duration-200 ease-in-out ${
-                                        section.label === selectedSection
-                                            ? "opacity-100"
-                                            : "opacity-0 pointer-events-none"
-                                    }`}
-                                >
-                                    <picture>
+                            {sections.map((section) =>
+                                section.image ? (
+                                    <picture
+                                        key={section.label}
+                                        className={`transition-opacity duration-200 ease-in-out ${
+                                            section.label === selectedSection
+                                                ? "opacity-100"
+                                                : "opacity-0 pointer-events-none"
+                                        }`}
+                                    >
                                         {Array.isArray(
-                                            (section.image as any)?.sources
+                                            (section.image as any)?.sources,
                                         )
                                             ? (
                                                   section.image as any
@@ -106,7 +102,7 @@ export default function FeaturesFlow() {
                                                           srcSet={s.srcset}
                                                           sizes="(min-width:1024px) 960px, 100vw"
                                                       />
-                                                  )
+                                                  ),
                                               )
                                             : null}
 
@@ -123,8 +119,26 @@ export default function FeaturesFlow() {
                                             decoding="async"
                                         />
                                     </picture>
-                                </div>
-                            ))}
+                                ) : (
+                                    <div
+                                        key={section.label}
+                                        className={`transition-opacity duration-200 ease-in-out mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 bg-white flex items-center justify-center h-[300px] sm:h-[500px] lg:h-[600px] ${
+                                            section.label === selectedSection
+                                                ? "opacity-100"
+                                                : "opacity-0 pointer-events-none"
+                                        }`}
+                                    >
+                                        <div className="text-center px-8">
+                                            <p className="text-slate-400 font-semibold text-lg">
+                                                {section.label}
+                                            </p>
+                                            <p className="text-slate-300 text-sm mt-2">
+                                                Screenshot placeholder
+                                            </p>
+                                        </div>
+                                    </div>
+                                ),
+                            )}
                         </div>
                     </div>
                     <div aria-hidden="true" className="relative">

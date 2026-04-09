@@ -1,5 +1,5 @@
 /** @format */
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { RiAiGenerate } from "react-icons/ri";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { HiOutlineTruck } from "react-icons/hi";
@@ -53,18 +53,13 @@ const sections: {
 export default function ShipmentsFlow() {
     const [selectedSection, setSelectedSection] = useState(sections[0].label);
 
-    const current = useMemo(
-        () => sections.find((s) => s.label === selectedSection)!,
-        [selectedSection]
-    );
-
     return (
         <div className="flex mt-20 flex-col mx-auto items-center h-full relative overflow-x-auto ">
             <h1 className="font-bold text-3xl sm:text-3xl/tight max-w-xl text-center sm:mx-0 mx-4">
                 Simplify Your Prep Center Operations
             </h1>
             <p className="mt-4 text-slate-700 font-medium text-center sm:mx-0 mx-4">
-                Manage, label, and ship with ease — PrepFlow automates your
+                Manage, label, and ship with ease. PrepFlow automates your
                 workflow from check-in to delivery.
             </p>
 
@@ -92,34 +87,50 @@ export default function ShipmentsFlow() {
             <div className="relative overflow-hidden pt-10">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-                        {/* Use the responsive sources + correct sizes */}
-                        <picture>
-                            {Array.isArray((current.image as any)?.sources)
-                                ? (current.image as any).sources.map(
-                                      (s: any, i: number) => (
-                                          <source
-                                              key={i}
-                                              type={s.type}
-                                              srcSet={s.srcset}
-                                              sizes="(min-width:1024px) 960px, 100vw"
-                                          />
-                                      )
-                                  )
-                                : null}
+                        <div className="grid [&>*]:[grid-area:1/1]">
+                            {sections.map((section) => (
+                                <div
+                                    key={section.label}
+                                    className={`transition-opacity duration-200 ease-in-out ${
+                                        section.label === selectedSection
+                                            ? "opacity-100"
+                                            : "opacity-0 pointer-events-none"
+                                    }`}
+                                >
+                                    <picture>
+                                        {Array.isArray(
+                                            (section.image as any)?.sources
+                                        )
+                                            ? (
+                                                  section.image as any
+                                              ).sources.map(
+                                                  (s: any, i: number) => (
+                                                      <source
+                                                          key={i}
+                                                          type={s.type}
+                                                          srcSet={s.srcset}
+                                                          sizes="(min-width:1024px) 960px, 100vw"
+                                                      />
+                                                  )
+                                              )
+                                            : null}
 
-                            <img
-                                src={
-                                    (current.image as any)?.img?.src ||
-                                    (current.image as any) ||
-                                    ""
-                                }
-                                alt={`Preview — ${current.label}`}
-                                className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 max-w-full h-auto"
-                                loading="eager"
-                                decoding="async"
-                                fetchPriority="high"
-                            />
-                        </picture>
+                                        <img
+                                            src={
+                                                (section.image as any)?.img
+                                                    ?.src ||
+                                                (section.image as any) ||
+                                                ""
+                                            }
+                                            alt={`Preview — ${section.label}`}
+                                            className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 max-w-full h-auto"
+                                            loading="eager"
+                                            decoding="async"
+                                        />
+                                    </picture>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div aria-hidden="true" className="relative">
                         <div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-[#DDE1E5] pt-[7%]" />
