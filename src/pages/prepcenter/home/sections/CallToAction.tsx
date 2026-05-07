@@ -24,7 +24,7 @@ export function CallToAction() {
                                                               bg-[linear-gradient(60deg,#C33764,#302B63)]
                                                               cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden"
                     >
-                        <p>Start your free trial</p>
+                        <p>Start now</p>
 
                         {/* Chevron Right (default) */}
                         <FaChevronRight

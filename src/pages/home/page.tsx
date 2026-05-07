@@ -24,7 +24,7 @@ function HomePage() {
 
                 <Features />
 
-                <PricingHero />
+                {/* <PricingHero /> */}
 
                 <CTA />
 

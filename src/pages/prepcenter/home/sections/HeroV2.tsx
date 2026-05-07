@@ -53,7 +53,7 @@ export default function HeroV2() {
                                           bg-[linear-gradient(60deg,#C33764,#302B63)]
                                           cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden"
                         >
-                            <p>Start Your Free Trial</p>
+                            <p>Start now</p>
 
                             {/* Chevron Right (default) */}
                             <FaChevronRight

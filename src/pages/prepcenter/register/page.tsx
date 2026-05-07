@@ -91,7 +91,7 @@ export default function PrepcenterRegister() {
                             >
                                 {!loading ? (
                                     <span>
-                                        Start your trial{" "}
+                                        Start now{" "}
                                         <span aria-hidden="true">&rarr;</span>
                                     </span>
                                 ) : (
