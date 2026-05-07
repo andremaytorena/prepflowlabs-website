@@ -3,7 +3,6 @@
 import Features from "./sections/features";
 import Header from "../../components/header";
 import Hero from "./sections/hero";
-import PricingHero from "./sections/pricing";
 import AnimatedBackground from "../../components/animatedBackground";
 import Footer from "../../components/footer";
 import ShipmentsFlow from "./sections/shipmentsFlow";
