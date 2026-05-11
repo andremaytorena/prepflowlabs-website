@@ -4,7 +4,7 @@ import { FaDiscord } from "react-icons/fa6";
 const navigation = {
     solutions: [
         { name: "Features", href: "/" },
-        { name: "Pricing", href: "/pricing" },
+        // { name: "Pricing", href: "/pricing" },
         { name: "Prepcenters", href: "/prepcenter" },
     ],
     support: [{ name: "Contact", href: "/contact" }],

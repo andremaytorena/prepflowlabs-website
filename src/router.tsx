@@ -10,7 +10,7 @@ import PrepcenterKPIS from "./pages/prepcenter/kpis/page";
 import PrepcenterBilling from "./pages/prepcenter/billing/page";
 import PrepcenterReferrals from "./pages/prepcenter/affiliates/page";
 import PrepcenterEmployees from "./pages/prepcenter/employees/page";
-import PricingPage from "./pages/pricing/page";
+// import PricingPage from "./pages/pricing/page";
 import PrepcenterRegister from "./pages/prepcenter/register/page";
 import PrepcenterContact from "./pages/prepcenter/contact/page";
 import NotFound from "./pages/notfound/page";
@@ -21,7 +21,7 @@ import WalmartIntegrationPage from "./pages/prepcenter/integrations/walmart/page
 
 const routes = createBrowserRouter([
     { path: "/", element: <HomePage /> },
-    { path: "/pricing", element: <PricingPage /> },
+    // { path: "/pricing", element: <PricingPage /> },
 
     { path: "/prepcenter", element: <PrepcenterHomePage /> },
     { path: "/contact", element: <PrepcenterContact /> },
