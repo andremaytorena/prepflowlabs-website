@@ -3,9 +3,7 @@ import { FaDiscord } from "react-icons/fa6";
 
 const navigation = {
     solutions: [
-        { name: "Features", href: "/" },
-        // { name: "Pricing", href: "/pricing" },
-        { name: "Prepcenters", href: "/prepcenter" },
+        { name: "Prepcenter", href: "/" },
     ],
     support: [{ name: "Contact", href: "/contact" }],
     // company: [
@@ -180,7 +178,7 @@ export default function Footer() {
                 </div>
                 <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
                     <p className="text-sm/6 text-gray-600">
-                        &copy; 2025 Prepflowlabs. All rights reserved.
+                        &copy; 2026 Prepflowlabs. All rights reserved.
                     </p>
                 </div>
             </div>

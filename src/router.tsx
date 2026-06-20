@@ -1,7 +1,9 @@
 /** @format */
 
 import { createBrowserRouter, redirect } from "react-router-dom";
-import HomePage from "./pages/home/page";
+// NOTE: The individuals (Prepflowlabs) landing lives at ./pages/home/page and is
+// intentionally kept on disk but unrouted. To bring it back, re-import HomePage and
+// map it to a route (e.g. "/" or "/individuals").
 import PrepcenterHomePage from "./pages/prepcenter/home/page";
 import ClientManagement from "./pages/prepcenter/client-management/page";
 import PrepCenterInventoryManagement from "./pages/prepcenter/inventory-management/page";
@@ -20,10 +22,11 @@ import SetupDomain from "./pages/prepcenter/onboard/setupDomain";
 import WalmartIntegrationPage from "./pages/prepcenter/integrations/walmart/page";
 
 const routes = createBrowserRouter([
-    { path: "/", element: <HomePage /> },
+    { path: "/", element: <PrepcenterHomePage /> },
     // { path: "/pricing", element: <PricingPage /> },
 
-    { path: "/prepcenter", element: <PrepcenterHomePage /> },
+    // The WMS landing now lives at "/"; keep this path working for old inbound links.
+    { path: "/prepcenter", loader: async () => redirect("/") },
     { path: "/contact", element: <PrepcenterContact /> },
     { path: "/prepcenter/client-management", element: <ClientManagement /> },
     {

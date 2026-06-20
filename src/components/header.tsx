@@ -30,7 +30,7 @@ const features = [
             {
                 name: "Warehouse Management Software",
                 description: "",
-                href: "/prepcenter",
+                href: "/",
                 icon: FaWarehouse,
             },
         ],
@@ -94,9 +94,7 @@ const features = [
 ];
 
 const items = [
-    { label: "Features", href: "/" },
-    // { label: "Pricing", href: "/pricing" },
-    { label: "Prepcenters", href: "/prepcenter" },
+    { label: "Prepcenters", href: "/" },
     { label: "Documentation", href: "https://docs.prepflowlabs.com" },
     { label: "Contact", href: "/contact" },
 ];
@@ -226,14 +224,11 @@ function MobileNavigation() {
                 transition
                 className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 data-closed:scale-95 data-closed:opacity-0 data-enter:duration-150 data-enter:ease-out data-leave:duration-100 data-leave:ease-in"
             >
-                {/* <MobileDropdown label="Features" sections={features} />
-                <MobileDropdown label="Integrations" sections={integrations} /> */}
-                <MobileNavLink href="/">Features</MobileNavLink>
-                <MobileNavLink href="/pricing">Pricing</MobileNavLink>
                 <MobileDropdown label="Prepcenters" sections={features} />
                 <MobileNavLink href="https://docs.prepflowlabs.com">
                     Documentation
                 </MobileNavLink>
+                <MobileNavLink href="/contact">Contact</MobileNavLink>
             </PopoverPanel>
         </Popover>
     );
@@ -390,13 +385,7 @@ export default function Header() {
                             {/* desktop buttons */}
                             <div className="hidden md:flex space-x-2">
                                 <a
-                                    href="https://app.prepflowlabs.com/login"
-                                    className="text-sm border border-slate-400 px-3 rounded-xl font-medium py-2 hover:opacity-80 cursor-pointer"
-                                >
-                                    Sign In
-                                </a>
-                                <a
-                                    href="https://app.prepflowlabs.com/sign-up"
+                                    href="/contact"
                                     className="group text-sm relative inline-flex items-center justify-center gap-x-2 px-6 py-2 font-medium text-white rounded-xl
                   bg-[linear-gradient(60deg,#C33764,#302B63)]
                   cursor-pointer hover:opacity-90 transition-all duration-300 overflow-hidden"
